@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+import { StudentContext } from './StudentContext';
 
 const AddStudent = () => {
   const [student, setStudent] = useState({
@@ -10,7 +11,7 @@ const AddStudent = () => {
     department: '',
   });
 
-  const [students, setStudents] = useState([]);
+  const [students, setStudents] = useContext(StudentContext);
 
   const handleChange = (e) => {
     const name = e.target.name;
@@ -53,6 +54,7 @@ const AddStudent = () => {
             className='col-75'
             id='firstname'
             type='text'
+            name='firstName'
             value={student.firstName}
             onChange={handleChange}
           />
@@ -62,6 +64,7 @@ const AddStudent = () => {
             Last Name
           </label>
           <input
+            name='lastName'
             className='col-75'
             id='lastname'
             type='text'
@@ -77,6 +80,7 @@ const AddStudent = () => {
             className='col-75'
             id='email'
             type='text'
+            name='email'
             value={student.email}
             onChange={handleChange}
           />
@@ -89,6 +93,7 @@ const AddStudent = () => {
             className='col-75'
             id='birthdate'
             type='date'
+            name='birthDate'
             value={student.birthDate}
             onChange={handleChange}
           />
@@ -101,6 +106,7 @@ const AddStudent = () => {
             className='col-75'
             id='faculty'
             type='text'
+            name='faculty'
             value={student.faculty}
             onChange={handleChange}
           />
@@ -113,6 +119,7 @@ const AddStudent = () => {
             className='col-75'
             id='department'
             type='text'
+            name='department'
             value={student.department}
             onChange={handleChange}
           />
